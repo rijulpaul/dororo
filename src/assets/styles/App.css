@@ -1,0 +1,5 @@
+.app {
+    justify-content: space-between;
+    height: 95vh;
+    display: flex;
+}
