@@ -1,4 +1,7 @@
-.container {
-    height: 88vh;
-    display: flex;
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 90vh;
 }

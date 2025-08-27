@@ -1,6 +1,8 @@
 .header {
-    font-size: 2rem;
-    font-weight: bold;
-    padding: 1rem 2rem;
-    height: 4vh;
+    height: 6vh;
+    font-size: 4rem;
+}
+
+.title {
+    margin: 0.4rem 2rem;
 }

@@ -2,7 +2,7 @@ import './Header.css'
 
 function Header() {
     return (
-    <header className="header">LUCID</header>
+    <header className='header'><div className='title'>FLOWW</div></header>
     )
 }
 
