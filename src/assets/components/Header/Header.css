@@ -1,6 +1,7 @@
 .header {
     height: 6vh;
-    font-size: 4rem;
+    font-size: 1.6rem;
+    letter-spacing: 6px;
 }
 
 .title {

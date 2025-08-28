@@ -1,8 +1,13 @@
 import './Button.css'
 
-function Button({ title }:{ title : string }) {
+interface ButtonProps {
+    title: String;
+    onClick?: () => void;
+}
+
+function Button( {title,onClick}:ButtonProps) {
     return(
-    <button className="button">{title}</button>
+    <button className="button" onClick={onClick}>{title}</button>
     )
 }
 
