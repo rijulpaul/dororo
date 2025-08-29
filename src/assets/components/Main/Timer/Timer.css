@@ -4,12 +4,12 @@
   align-items: center;
   justify-content: start;
   background: none;
+  margin: 2rem 0;
 }
 .timer {
+  font-family: 'Inconsolata';
   width: 100%;
-  font-size: 12rem;
-  letter-spacing: 2rem;
+  font-size: 10rem;
   text-align: center;
-  padding-left: 3rem;
   margin: 4rem 4rem;
 }

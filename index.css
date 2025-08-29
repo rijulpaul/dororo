@@ -6,12 +6,16 @@
     font-family: jura;
 }
 
+:root {
+    --theme: white;
+    background: var(--theme);
+}
+
 #background {
     position: absolute;
     top: 0;
     left: 0;
-    height: 100%;
-    width: 100%;
-    background: white;
+    background: var(--theme);
+    filter: blur(40px);
     z-index: -1;
 }

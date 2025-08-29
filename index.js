@@ -9,14 +9,19 @@ window.addEventListener("resize", resize);
 resize();
 
 // Create random circles
-const circles = Array.from({ length: 5 }, () => ({
+const circles = Array.from({ length: 7 }, () => {
+
+  const color = Math.random() * 360;
+ return {
   x: Math.random() * w,
   y: Math.random() * h,
   r: 100 + Math.random() * 150, // radius
   dx: (Math.random() - 0.5) * 0.5, // velocity X
   dy: (Math.random() - 0.5) * 0.5, // velocity Y
-  color: `hsla(${Math.random() * 360}, 100%, 50%, 0.2)`,
-}));
+  color: color,
+  light: `hsla(${color},100%,60%,0.5)`,
+  dark: `hsla(${color},70%,30%,0.5)`,
+}});
 
 function draw() {
   ctx.clearRect(0, 0, w, h);
@@ -31,10 +36,16 @@ function draw() {
     if (c.y - c.r > h) c.y = -c.r;
     if (c.y + c.r < 0) c.y = h + c.r;
 
+    c.color = (c.color+(Math.random()*0.5))%360;
+
+    // recolor
+    c.light = `hsla(${c.color},100%,60%,0.5)`;
+    c.dark = `hsla(${c.color},70%,30%,0.5)`;
+
     // Draw gradient circle
-    const grad = ctx.createRadialGradient(c.x, c.y, c.r, c.x, c.y, c.r - 20);
-    grad.addColorStop(0, c.color);
-    grad.addColorStop(1, "transparent");
+    const grad = ctx.createRadialGradient(c.x, c.y, c.r, c.x, c.y, 0);
+    grad.addColorStop(0, c.dark);
+    grad.addColorStop(1, c.light);
     ctx.fillStyle = grad;
     ctx.beginPath();
     ctx.arc(c.x, c.y, c.r, 0, Math.PI * 2);

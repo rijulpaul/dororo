@@ -5,6 +5,7 @@ import Timer from './Timer/Timer.tsx'
 function Main() {
     return (
             <div className="main">
+            <Tasks/>
             <Timer/>
             </div>
     )

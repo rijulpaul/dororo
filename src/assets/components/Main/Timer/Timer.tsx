@@ -27,8 +27,8 @@ function Timer() {
         <div className='timer-container'>
             <div className='timer'>{formatTime(Math.floor(timer/60)) || "00"}:{formatTime(timer%60)}</div>
             <div className='buttons'>
-                <Button title="Focus" onClick={()=>setIsActive(!isActive)}/>
-                <Button title='Reset' onClick={()=>{setTimer(25*60); setIsActive(false)}}/>
+                {isActive || <Button title="Focus" onClick={()=>setIsActive(!isActive)}/>}
+                <Button title={isActive ? "Stop" : "Break"} onClick={()=>{setTimer(25*60); setIsActive(false)}}/>
             </div>
         </div>
     )

@@ -6,3 +6,8 @@
     padding: 0.6rem 3rem;
     width: 12ch;
 }
+
+.button:hover {
+    box-shadow: #ff00ff 0 0 8px;
+    border-color: #ff00ff;
+}
