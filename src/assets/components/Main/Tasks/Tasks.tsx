@@ -1,10 +1,14 @@
 import './Tasks.css'
+import { useState } from 'react';
 
 function Tasks() {
+
+    const [viewBoard,setViewBoard] = useState<boolean>(false)
+
     return (
-    <div className="tasks-container">
-            <div className='tasks'>
-                Build a Pomodoro App
+    <div className={"tasks-container " + (viewBoard && "visible")}>
+            <div className="tasks" onClick={()=>setViewBoard(!viewBoard)}>
+                {viewBoard ? "opened" : "closed"}
             </div>
         </div>
     )

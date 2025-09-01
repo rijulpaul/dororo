@@ -1,27 +1,28 @@
 .tasks-container {
-    margin: 1rem 0;
+  margin: 1rem 0;
+  border: solid gray 1px;
+  border-radius: 2rem;
+  top: 20%;
+  position: absolute;
+  transition: 0.2s ease all;
+  height: fit-content;
+}
+
+.tasks-container.visible {
+  transition: 0.2s ease all;
+  height: 40ch;
+  backdrop-filter: blur(20px);
+  z-index: 2;
 }
 
 .tasks {
-    margin: auto;
-    border: solid grey 1px;
-    border-radius: 2rem;
-    height: 2.4rem;
-    width: 60vw;
-    padding: 0 2rem;
-    padding-top: 0.8rem;
-    font-size: 1.2rem;
-    text-align: center;
-    backdrop-filter: blur(4px);
-}
-
-.tasks-container:hover {
-    border: solid blue 1px;
-    border-radius: 2rem;
-
-    .tasks {
-        position:relative;
-        border: none;
-        z-index: 2;
-    }
+  margin: auto;
+  /* border: solid grey 1px; */
+  /* border-radius: 2rem; */
+  height: 2.4rem;
+  width: 60vw;
+  padding: 0 2rem;
+  padding-top: 0.8rem;
+  font-size: 1.2rem;
+  text-align: center;
 }

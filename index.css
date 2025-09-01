@@ -2,12 +2,12 @@
     margin: 0px;
     padding: 0px;
     background: none;
-    color: gray;
+    color: white;
     font-family: jura;
 }
 
 :root {
-    --theme: white;
+    --theme: black;
     background: var(--theme);
 }
 
@@ -16,6 +16,6 @@
     top: 0;
     left: 0;
     background: var(--theme);
-    filter: blur(40px);
+    filter: blur(0px);
     z-index: -1;
 }
