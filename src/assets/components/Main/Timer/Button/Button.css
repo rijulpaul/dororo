@@ -1,13 +1,13 @@
 .button {
-    border: solid grey 0.1rem;
-    border-radius: 2rem;
-    font-size: 1.4rem;
-    margin: 1rem 2rem;
-    padding: 0.6rem 3rem;
-    width: 12ch;
+  border: solid grey 2px;
+  border-radius: 2rem;
+  font-size: 1.4rem;
+  margin: 1rem 2rem;
+  padding: 0.6rem 3rem;
+  letter-spacing: 4px;
+  background: #00000080;
+    backdrop-filter: blur(16px);
 }
 
 .button:hover {
-    box-shadow: #ff00ff 0 0 8px;
-    border-color: #ff00ff;
 }

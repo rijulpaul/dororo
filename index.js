@@ -19,8 +19,6 @@ const circles = Array.from({ length: 7 }, () => {
   dx: (Math.random() - 0.5) * 0.5, // velocity X
   dy: (Math.random() - 0.5) * 0.5, // velocity Y
   color: color,
-  light: `hsla(${color},100%,60%,0.5)`,
-  dark: `hsla(${color},70%,30%,0.5)`,
 }});
 
 function draw() {
@@ -39,13 +37,13 @@ function draw() {
     c.color = (c.color+(Math.random()*0.5))%360;
 
     // recolor
-    c.light = `hsla(${c.color},100%,60%,0.5)`;
-    c.dark = `hsla(${c.color},70%,30%,0.5)`;
+    c.light = `hsla(${c.color},100%,60%,1)`;
+    c.dark = `hsla(${c.color},100%,40%,1)`;
 
     // Draw gradient circle
     const grad = ctx.createRadialGradient(c.x, c.y, c.r, c.x, c.y, 0);
-    grad.addColorStop(0, c.dark);
-    grad.addColorStop(1, c.light);
+    grad.addColorStop(0, c.light);
+    grad.addColorStop(1,c.dark);
     ctx.fillStyle = grad;
     ctx.beginPath();
     ctx.arc(c.x, c.y, c.r, 0, Math.PI * 2);

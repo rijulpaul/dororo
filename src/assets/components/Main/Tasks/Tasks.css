@@ -1,28 +1,56 @@
 .tasks-container {
-  margin: 1rem 0;
+  /* margin: 1rem 0; */
   border: solid gray 1px;
   border-radius: 2rem;
   top: 20%;
   position: absolute;
-  transition: 0.2s ease all;
-  height: fit-content;
+  backdrop-filter: blur(20px);
+  background: #00000060;
+  /* transition: 0.4s ease all; */
+  /* height: 5ch; */
 }
 
 .tasks-container.visible {
-  transition: 0.2s ease all;
-  height: 40ch;
-  backdrop-filter: blur(20px);
+  /* transition: 0.4s ease all; */
+  min-height: 60vh;
+  padding: 1rem;
+  width: 60vw;
   z-index: 2;
 }
 
-.tasks {
-  margin: auto;
+.task {
+  /* margin: auto; */
+  display: flex;
+  justify-content: space-between;
   /* border: solid grey 1px; */
   /* border-radius: 2rem; */
-  height: 2.4rem;
-  width: 60vw;
-  padding: 0 2rem;
-  padding-top: 0.8rem;
-  font-size: 1.2rem;
+  /* height: 2.4rem; */
+  margin: 1rem;
+  /* padding-top: 0.8rem; */
+  font-size: 1.4rem;
   text-align: center;
+}
+.task-input {
+  border: none;
+  outline: none;
+  font-size: 1.4rem;
+}
+
+.task-add,
+.task-back {
+  font-size: 2rem;
+  background: #50505080;
+  border-radius: 2rem;
+  text-align: center;
+}
+
+.task-back {
+  position: absolute;
+  display: flex;
+  top: 100%;
+  left: 50%;
+  border: solid gray 1px;
+  transform: translate(-50%, 60%);
+  justify-content: center;
+  align-items: center;
 }

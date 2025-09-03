@@ -2,7 +2,6 @@
     margin: 0px;
     padding: 0px;
     background: none;
-    color: white;
     font-family: jura;
 }
 
@@ -16,6 +15,5 @@
     top: 0;
     left: 0;
     background: var(--theme);
-    filter: blur(0px);
     z-index: -1;
 }

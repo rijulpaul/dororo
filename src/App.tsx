@@ -6,11 +6,11 @@ import Main from './assets/components/Main/Main.tsx'
 function App() {
 
   return (
-    <>
+    <div className='app'>
             <Header/>
             <Main/>
             <Footer/>
-    </>
+    </div>
   )
 }
 

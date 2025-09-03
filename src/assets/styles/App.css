@@ -1,5 +1,7 @@
 .app {
-    justify-content: space-between;
-    display: flex;
-    height: 80vh;
+  color: white;
+}
+
+.app * {
+  color: inherit;
 }
