@@ -1,6 +1,5 @@
 import './Tasks.css'
 import editSvg from '../../../../../public/edit.svg'
-// import { ReactComponent as trashSvg  } from '../../../../../public/trash.svg'
 import { useReducer, useState } from 'react';
 
 function Task({title}) {
@@ -8,7 +7,18 @@ function Task({title}) {
     const [isEditing,setIsEditing] = useState<boolean>(false);
     return (
     <div className='task' onClick={()=>setIsEditing(true)}>
-            {isEditing ? <input className="task-input" placeholder={title}/> : title}
+            {
+                isEditing ?
+                (<>
+                    <input className="task-input" placeholder={title}/>
+
+                </>) :
+                (
+                <>
+                    {title}
+                </>
+                )
+            }
         </div>
     )
 }
@@ -17,7 +27,6 @@ function taskReducer(state,action) {
 }
 
 function Tasks() {
-
     const [viewBoard,setViewBoard] = useState<boolean>(false)
     const [activeTask,setActiveTask] = useState<number>(0)
     const [taskList,editTaskList] = useReducer<Array<string>>(taskReducer,["aa","b"])
@@ -28,13 +37,12 @@ function Tasks() {
                 viewBoard ?
                 (
                     <>
-                    <div className='task-add'>+</div>
                     {taskList && taskList.map((_,index)=><Task title={taskList[index]}/>)}
                     <button className='task-back' onClick={()=>setViewBoard(false)}>x</button>
                     </>
                 ) :
                 (
-                    activeTask ? <Task title={taskList[activeTask]}/> : <Task title="add a Task"/>
+                    activeTask ? <Task title={taskList[activeTask]}/> : <Task title="No Task" />
                 )
             }
         </div>
