@@ -1,10 +1,17 @@
 import './Tasks.css'
 import { useReducer, useState } from 'react';
 
-function Task (title: string, key: number, taskEditor: any) {
+function Task ({title,index,taskEditor, setActive}:{title: string; index: number; taskEditor: any, setActive: any}) {
+    const [viewButtons,setViewButtons] = useState(false);
+    // add warning for empty input
     return (
-    <li className='task'>
-         <input className="task-input" value={title} placeholder={title} onChange={(e) => taskEditor({type: "edit", value: e.target.value, index: key})}/>
+    <li className='task' onClick={()=>setActive(index)} onMouseOver={()=>setViewButtons(true)} onMouseLeave={()=>setViewButtons(false)}>
+         <input className="task-input" value={title} placeholder={title} onChange={(e) => taskEditor({type: "edit", value: e.target.value, index})}/>
+        { viewButtons && 
+            <div className='task-buttons'>
+                A B C
+            </div>
+        }
     </li>
     )
 }
@@ -14,11 +21,9 @@ type taskEditAction = { type: "insert"; value: string } | { type: "delete"; inde
 function taskReducer(state: string[], action: taskEditAction): string[] {
     switch(action.type) {
         case "insert":
-            state.push("New Task")
-            return state
+            return [...state, action.value]
         case "delete":
-            state.push("New Task")
-            return state
+            return state.filter((_,i) =>i !== action.index)
         case "edit":
             return state.map((task, index) => index === action.index ? action.value : task)
         default:
@@ -27,30 +32,27 @@ function taskReducer(state: string[], action: taskEditAction): string[] {
 }
 
 function Tasks() {
-    const [viewBoard,setViewBoard] = useState<boolean>(false)
-    const [activeTask,setActiveTask] = useState<number>(0)
-    const [taskList,editTaskList] = useReducer<string[]>(taskReducer,["one","two"])
+    const [viewBoard,setViewBoard] = useState(false)
+    const [activeTask,setActiveTask] = useState(0)
+    const [taskList,editTaskList] = useReducer(taskReducer,["one","two"])
 
     return (
         <>
         {
-            !viewBoard ?
-        (
+            !viewBoard ? (
         <div className={'tasks-container'} onClick={()=>setViewBoard(true)}>
             <div className='task'>{taskList[activeTask] || "Add Task"} </div>
         </div>
-        ) :
-        (
+        ) : (
         <>
-        <div style={{position: "absolute", left: "0", right: "0", top: "0", bottom: "0", zIndex: "2"}} onClick={()=>setViewBoard(false)}></div>
-        <div className={'tasks-container visible'}>
-            <button className='task-add' onClick={()=>taskList.push("New Task")}>+</button>
-            { taskList && taskList.map((_,index)=><Task title={taskList[index]} key={index} taskEditer={editTaskList}/>) }
-            <button className='task-back' onClick={()=>setViewBoard(false)}>x</button>
-        </div>
+            <div style={{position: "absolute", left: "0", right: "0", top: "0", bottom: "0", zIndex: "2"}} onClick={()=>setViewBoard(false)}></div>
+            <div className={'tasks-container visible'}>
+                <button className='task-add' onClick={()=>editTaskList({ type: "insert", value: "New Task"})}>+</button>
+                { taskList && taskList.map((_,index)=><Task title={taskList[index]} index={index} taskEditor={editTaskList} setActive={setActiveTask}/>) }
+                <button className='task-back' onClick={()=>setViewBoard(false)}>x</button>
+            </div>
         </>
-        )
-        }
+        )}
         </>
     )
 }
