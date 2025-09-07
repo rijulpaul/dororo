@@ -2,16 +2,12 @@ import './Tasks.css'
 import { useReducer, useState } from 'react';
 
 function Task ({title,index,taskEditor, setActive}:{title: string; index: number; taskEditor: any, setActive: any}) {
-    const [viewButtons,setViewButtons] = useState(false);
+    const [hover,setHover] = useState(false);
     // add warning for empty input
     return (
-    <li className='task' onClick={()=>setActive(index)} onMouseOver={()=>setViewButtons(true)} onMouseLeave={()=>setViewButtons(false)}>
+    <li className={'task ' + (hover && "task-hover")} key={index} onClick={()=>setActive(index)} onMouseOver={()=>setHover(true)} onMouseLeave={()=>setHover(false)}>
          <input className="task-input" value={title} placeholder={title} onChange={(e) => taskEditor({type: "edit", value: e.target.value, index})}/>
-        { viewButtons && 
-            <div className='task-buttons'>
-                A B C
-            </div>
-        }
+        { hover && <button className='task-button' onClick={()=>taskEditor({type: "delete", index})}><img className="task-delete" src='../../../../../public/trash.svg'/></button> }
     </li>
     )
 }
@@ -34,7 +30,7 @@ function taskReducer(state: string[], action: taskEditAction): string[] {
 function Tasks() {
     const [viewBoard,setViewBoard] = useState(false)
     const [activeTask,setActiveTask] = useState(0)
-    const [taskList,editTaskList] = useReducer(taskReducer,["one","two"])
+    const [taskList,editTaskList] = useReducer(taskReducer,[])
 
     return (
         <>
@@ -49,7 +45,6 @@ function Tasks() {
             <div className={'tasks-container visible'}>
                 <button className='task-add' onClick={()=>editTaskList({ type: "insert", value: "New Task"})}>+</button>
                 { taskList && taskList.map((_,index)=><Task title={taskList[index]} index={index} taskEditor={editTaskList} setActive={setActiveTask}/>) }
-                <button className='task-back' onClick={()=>setViewBoard(false)}>x</button>
             </div>
         </>
         )}

@@ -18,44 +18,47 @@
   z-index: 2;
 }
 
+.task-button {
+  border: none;
+  background: none;
+  height: 1.4rem;
+  width: 1.4rem;
+}
+
 .task {
   /* margin: auto; */
   display: flex;
   justify-content: space-between;
   /* border: solid grey 1px; */
-  /* border-radius: 2rem; */
+  border-radius: 2rem;
   /* height: 2.4rem; */
-  margin: 1rem;
+  margin: 0.4rem 0;
+  padding: 0.2rem 1rem;
   /* padding-top: 0.8rem; */
   font-size: 1.4rem;
   text-align: center;
 }
+
+.task-hover {
+  background-color: #50505040;
+}
+
 .task-input {
   border: none;
   outline: none;
   font-size: 1.4rem;
 }
 
-.task-add,
-.task-back {
+.task-delete {
+  height: 1.6rem;
+  width: 1.6rem;
+}
+
+.task-add {
   font-size: 2rem;
   background: #50505080;
   border-radius: 2rem;
   text-align: center;
-}
-
-.task-back {
-  position: absolute;
-  display: flex;
-  top: 100%;
-  left: 50%;
-  border: solid gray 1px;
-  transform: translate(-50%, 60%);
-  justify-content: center;
-  align-items: center;
-}
-
-.task-add {
   width: 100%;
   border: none;
 }
