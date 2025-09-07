@@ -1,7 +1,7 @@
 import './Tasks.css'
 import { useReducer, useState } from 'react';
 
-function Task (title: string, key: number, taskEditor: any) {
+function Task (title: string, key: number, taskEditor: Function) {
     return (
     <li className='task'>
          <input className="task-input" value={title} placeholder={title} onChange={(e) => taskEditor({type: "edit", value: e.target.value, index: key})}/>
