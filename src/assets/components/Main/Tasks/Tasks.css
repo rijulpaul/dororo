@@ -4,15 +4,12 @@
   border-radius: 2rem;
   top: 20%;
   position: absolute;
-  backdrop-filter: blur(20px);
-  background: #00000060;
-  /* transition: 0.4s ease all; */
-  /* height: 5ch; */
+  backdrop-filter: blur(4px);
+  background: #00000020;
 }
 
 .tasks-container.visible {
-  /* transition: 0.4s ease all; */
-  min-height: 60vh;
+  min-height: 10vh;
   padding: 1rem;
   width: 40vw;
   z-index: 2;
@@ -40,7 +37,7 @@
 }
 
 .task-hover {
-  background-color: #50505040;
+  background-color: #50505060;
 }
 
 .task-input {

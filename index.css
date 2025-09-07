@@ -6,8 +6,7 @@
 }
 
 :root {
-    --theme: black;
-    background: var(--theme);
+    background-color: black;
 }
 
 #background {

@@ -5,9 +5,6 @@
   margin: 1rem 2rem;
   padding: 0.6rem 3rem;
   letter-spacing: 4px;
-  background: #00000080;
-    backdrop-filter: blur(16px);
-}
-
-.button:hover {
+  background: #00000020;
+  backdrop-filter: blur(4px);
 }

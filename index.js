@@ -16,8 +16,8 @@ const circles = Array.from({ length: 7 }, () => {
   x: Math.random() * w,
   y: Math.random() * h,
   r: 100 + Math.random() * 150, // radius
-  dx: (Math.random() - 0.5) * 0.5, // velocity X
-  dy: (Math.random() - 0.5) * 0.5, // velocity Y
+  dx: (Math.random() - 0.5) * 0.2, // velocity X
+  dy: (Math.random() - 0.5) * 0.2, // velocity Y
   color: color,
 }});
 
@@ -34,10 +34,10 @@ function draw() {
     if (c.y - c.r > h) c.y = -c.r;
     if (c.y + c.r < 0) c.y = h + c.r;
 
-    c.color = (c.color+(Math.random()*0.5))%360;
+    c.color = (c.color+(Math.random()*0.2))%360;
 
     // recolor
-    c.light = `hsla(${c.color},100%,60%,1)`;
+    c.light = `hsla(${c.color},100%,55%,1)`;
     c.dark = `hsla(${c.color},100%,40%,1)`;
 
     // Draw gradient circle
