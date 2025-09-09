@@ -5,7 +5,7 @@
   top: 20%;
   position: absolute;
   backdrop-filter: blur(18px);
-  background: rgba(var(--background), 0.6);
+  background: rgba(var(--background), 0.5);
 }
 
 .tasks-container.visible {
@@ -37,7 +37,7 @@
 
 .task-hover {
   /* background-color: #88888830; */
-  background-color: rgba(var(--font), 0.15);
+  background-color: rgba(var(--font), 0.1);
 }
 
 .task-input {
