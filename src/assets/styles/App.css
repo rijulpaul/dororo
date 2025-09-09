@@ -5,3 +5,28 @@
 /* .app * { */
 /*   color: inherit; */
 /* } */
+* {
+    margin: 0px;
+    padding: 0px;
+    background: none;
+    font-family: jura;
+    color: rgb(var(--font));
+}
+
+:root {
+    --background: 255,255,255;
+    --font: 90,90,90;
+    background-color: rgb(var(--background));
+}
+
+[data-theme="dark"] {
+    --background: 0,0,0;
+    --font: 255,255,255;
+}
+
+#background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
