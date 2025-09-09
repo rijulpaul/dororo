@@ -20,7 +20,7 @@ function Header() {
     <header className='header'>
             <h1 className='title'>FLOWW</h1>
             <button className='theme' onClick={toggleTheme}>
-                {theme === 'light' ? <img width={50} src='../../../../public/sun.png'></img> : <img width={50} src='../../../../public/moon.png'></img>}
+                {theme === 'light' ? <img width={50} src='/sun.png'></img> : <img width={50} src='/moon.png'></img>}
             </button>
         </header>
     )
