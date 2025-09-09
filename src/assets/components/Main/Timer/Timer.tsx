@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 
 function Timer() {
 
-    const [timer,setTimer] = useState<number>(2);
+    const [timer,setTimer] = useState<number>(25*60);
     const [isActive,setIsActive] = useState<boolean>(false);
 
     const formatTime = (time:number) => String(time).padStart(2,'0');
