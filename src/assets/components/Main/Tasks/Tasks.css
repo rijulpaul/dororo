@@ -4,12 +4,11 @@
   border-radius: 2rem;
   top: 20%;
   position: absolute;
-  backdrop-filter: blur(4px);
-  background: #00000020;
+  backdrop-filter: blur(18px);
+  background: rgba(var(--background), 0.6);
 }
 
 .tasks-container.visible {
-  min-height: 10vh;
   padding: 1rem;
   width: 40vw;
   z-index: 2;
@@ -37,7 +36,8 @@
 }
 
 .task-hover {
-  background-color: #50505060;
+  /* background-color: #88888830; */
+  background-color: rgba(var(--font), 0.15);
 }
 
 .task-input {
@@ -53,7 +53,7 @@
 
 .task-add {
   font-size: 2rem;
-  background: #50505080;
+  background: rgba(var(--font),0.2);
   border-radius: 2rem;
   text-align: center;
   width: 100%;

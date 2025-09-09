@@ -9,28 +9,32 @@ function Timer() {
 
     const formatTime = (time:number) => String(time).padStart(2,'0');
 
-    useEffect(()=>{
-        if (isActive && timer >= 0) {
-            const t = setInterval(()=>{
-                setTimer(timer=>(timer-1))
-            },1000)
-            setTimeout(()=>{
-                clearInterval(t);
-                setIsActive(false)
-            }, timer*1000+1000)
-        }
+  useEffect(() => {
+    if (!isActive) return;
 
-        return () => {
-            setTimer(2)
+    const interval = setInterval(() => {
+      setTimer((prev) => {
+        if (prev <= 0) {
+          clearInterval(interval);
+          setIsActive(false);
+          return 0;
         }
-    },[isActive])
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => {
+        clearInterval(interval);
+        setTimer(25*60)
+    }
+  }, [isActive]);
 
     return(
         <div className='timer-container'>
             <div className='timer'>{formatTime(Math.floor(timer/60)) || "00"}:{formatTime(timer%60)}</div>
             <div className='buttons'>
-                {isActive || <Button title="Focus" onClick={()=>setIsActive(!isActive)}/>}
-                <Button title={isActive ? "Stop" : "Break"} onClick={()=>{setTimer(2); setIsActive(false)}}/>
+                {isActive || <Button title="Focus" onClick={()=>{setTimer(25*60);setIsActive(!isActive)}}/>}
+                <Button title={isActive ? "Stop" : "Break"} onClick={()=>{setTimer(5*60); setIsActive(!isActive)}}/>
             </div>
         </div>
     )
