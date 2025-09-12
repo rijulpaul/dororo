@@ -7,7 +7,7 @@ function Task ({title,index,taskEditor, setActive}:{title: string; index: number
     return (
     <li className={'task ' + (hover && "task-hover")} key={index} onClick={()=>setActive(index)} onMouseOver={()=>setHover(true)} onMouseLeave={()=>setHover(false)}>
          <input className="task-input" value={title} placeholder={title} onChange={(e) => taskEditor({type: "edit", value: e.target.value, index})}/>
-        { hover && <button className='task-button' onClick={()=>taskEditor({type: "delete", index})}><img className="task-delete" src='/trash.svg'/></button> }
+        { hover && <button className='task-button' onClick={()=>taskEditor({type: "delete", index})}><img className="task-delete" src='./trash.svg'/></button> }
     </li>
     )
 }
