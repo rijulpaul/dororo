@@ -20,3 +20,19 @@
   padding: 0.5rem 1rem;
   border-radius: 10rem;
 }
+
+.theme-icon {
+    width: 50px;
+}
+
+@media (max-width: 800px) {
+    .header {
+        font-size: 22px;
+    }
+    .title, .theme {
+        margin: 0.2rem 1rem;
+    }
+    .theme-icon {
+        width: 40px;
+    }
+}

@@ -4,3 +4,9 @@
     height: 2vh;
     letter-spacing: 2px;
 }
+
+@media (max-width: 800px) {
+    .footer {
+        font-size: 1rem;
+    }
+}

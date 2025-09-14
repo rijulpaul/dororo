@@ -11,7 +11,10 @@
 
 .tasks-container.visible {
   padding: 1rem;
-  width: max(550px, 40vw);
+  /* width: 40vw; */
+  width: max(320px, 40vw);
+  max-height: 60vh;
+  overflow: scroll;
   z-index: 2;
 }
 
@@ -32,7 +35,7 @@
   margin: 0.5rem 0;
   padding: 0.2rem 0.7rem;
   /* padding-top: 0.8rem; */
-  font-size: 1.4rem;
+  font-size: clamp(20px, 2vw, 1.4rem);
 }
 
 .task-hover {
@@ -43,7 +46,8 @@
 .task-input {
   border: none;
   outline: none;
-  font-size: 1.4rem;
+  width: 80%;
+  font-size: clamp(20px, 2vw, 1.4rem);
 }
 
 .task-delete {
